@@ -1,0 +1,106 @@
+/* ✅ PAGE */
+.page {
+  background: #020617;
+  min-height: 100vh;
+  padding: 40px;
+  color: white;
+  text-align: center;
+}
+
+/* ✅ CONTAINER */
+.orders-container {
+  max-width: 900px;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ✅ CARD */
+.card {
+  background: #111827;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: left;
+
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+/* ✅ TITLES */
+.card h3 {
+  color: orange;
+  margin-bottom: 10px;
+}
+
+/* ✅ TEXT */
+.card p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #cbd5f5;
+}
+
+/* ✅ BUTTONS */
+.card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+button {
+  background: orange;
+  color: black;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ffb347;
+}
+
+/* ✅ REJECT BUTTON */
+.reject-btn {
+  background: crimson;
+  color: white;
+}
+
+.reject-btn:hover {
+  background: #ff4d4d;
+}
+
+/* ✅ STATUS BADGES */
+.status {
+  margin-left: 8px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.status.PENDING {
+  background: orange;
+  color: black;
+}
+
+.status.ACCEPTED {
+  background: #22c55e;
+  color: white;
+}
+
+.status.REJECTED {
+  background: #ef4444;
+  color: white;
+}
+
+/* ✅ EMPTY TEXT */
+.empty-text {
+  margin-top: 30px;
+  color: #94a3b8;
+}

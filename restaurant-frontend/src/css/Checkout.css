@@ -1,0 +1,39 @@
+.checkout-page {
+  background: #020617;
+  min-height: 100vh;
+  color: white;
+  padding: 40px;
+  text-align: center;
+}
+
+.checkout-item {
+  max-width: 500px;
+  margin: 10px auto;
+  background: #111827;
+  padding: 12px 20px;
+  border-radius: 10px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkout-page h3 {
+  margin-top: 20px;
+  color: orange;
+}
+
+.checkout-page button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  background: orange;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.checkout-page .ghost-btn {
+  background: transparent;
+  border: 1px solid orange;
+  color: orange;
+}

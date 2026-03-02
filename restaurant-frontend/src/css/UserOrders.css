@@ -1,0 +1,27 @@
+.status {
+  margin-left: 8px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.status.PENDING {
+  background: orange;
+  color: black;
+}
+
+.status.ACCEPTED {
+  background: #22c55e;
+  color: white;
+}
+
+.status.REJECTED {
+  background: #ef4444;
+  color: white;
+}
+
+.rejected-msg {
+  color: #ef4444;
+  font-weight: bold;
+}

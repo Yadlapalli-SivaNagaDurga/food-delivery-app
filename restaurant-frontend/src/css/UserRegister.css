@@ -1,0 +1,105 @@
+.register-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #020617;
+}
+
+.register-box {
+  width: 350px;
+  padding: 30px;
+  background: #111827;
+  border-radius: 12px;
+  text-align: center;
+  color: white;
+}
+
+.register-box input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #374151;
+
+  background: #020617;     /* Dark input background */
+  color: white;            /* ✅ Typed text visible */
+  font-size: 14px;
+}
+
+/* ✅ Placeholder text visible */
+.register-box input::placeholder {
+  color: #9CA3AF;
+}
+
+.register-box button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  background: orange;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.ghost-btn {
+  background: transparent !important;
+  border: 1px solid orange;
+  color: orange;
+}
+
+.register-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #020617;
+}
+
+.register-box {
+  width: 350px;
+  padding: 30px;
+  background: #111827;
+  border-radius: 12px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+
+.register-box input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #374151;
+  background: #020617;
+  color: white;
+}
+
+/* ✅ Placeholder visibility fix */
+.register-box input::placeholder {
+  color: #9CA3AF;
+}
+
+.register-box input:focus {
+  outline: none;
+  border-color: orange;
+  box-shadow: 0 0 5px orange;
+}
+
+.register-box button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  background: orange;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.ghost-btn {
+  background: transparent !important;
+  border: 1px solid orange;
+  color: orange;
+}

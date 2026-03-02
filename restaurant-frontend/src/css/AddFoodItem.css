@@ -1,0 +1,51 @@
+.add-food-page {
+  background: #0b0f1a;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.add-food-card {
+  background: #111827;
+  padding: 30px;
+  border-radius: 14px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.add-food-card input {
+  background: #1f2933;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  color: white;
+}
+
+.add-food-card button {
+  background: #f97316;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+
+.add-food-card button:hover {
+  opacity: 0.9;
+}
+
+.ghost-btn {
+  background: transparent;
+  border: 1px solid #f97316;
+  color: #f97316;
+}
+
+.ghost-btn:hover {
+  background: #f97316;
+  color: white;
+}
