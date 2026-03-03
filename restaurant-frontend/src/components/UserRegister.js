@@ -1,7 +1,7 @@
 import { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../css/UserRegister.css";
+import api from "../utils/api";   // ✅ use centralized api
 
 function UserRegister() {
 
@@ -18,15 +18,13 @@ function UserRegister() {
       return;
     }
 
-    axios.post("http://localhost:8001/users/register", {
+    api.post("/users/register", {   // ✅ changed
       name,
       email,
       password
     })
     .then(() => {
       alert("Registration Successful ✅");
-
-      // ✅ Redirect to your existing Login Page
       navigate("/login");
     })
     .catch(err => {

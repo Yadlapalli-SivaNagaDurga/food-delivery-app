@@ -1,7 +1,7 @@
 import { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../css/Form.css";
+import api from "../utils/api";   // ✅ use centralized api
 
 function Login() {
 
@@ -28,14 +28,14 @@ function Login() {
       return;
     }
 
-    const url =
+    const endpoint =
       selectedRole === "restaurant"
-        ? "http://localhost:8001/restaurants/login"
-        : "http://localhost:8001/users/login";
+        ? "/restaurants/login"
+        : "/users/login";
 
     try {
 
-      const response = await axios.post(url, null, {
+      const response = await api.post(endpoint, null, {   // ✅ changed
         params: loginData
       });
 
@@ -46,17 +46,13 @@ function Login() {
 
         if (selectedRole === "restaurant") {
 
-          // ✅ SAVE RESTAURANT SESSION
           localStorage.setItem("restaurantEmail", response.data.email);
-
           navigate("/restaurant-home");
 
         } else {
 
-          // ✅ SAVE USER SESSION
           localStorage.setItem("userEmail", response.data.email);
-
-          navigate("/user-home");   // ⭐ FIXED REDIRECT
+          navigate("/user-home");
         }
 
       } else {

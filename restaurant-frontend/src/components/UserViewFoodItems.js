@@ -1,8 +1,8 @@
-import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/ViewFoodItem.css";
 import { CartContext } from "../contexts/CartContext";
+import api from "../utils/api";   // ✅ use centralized api
 
 function UserViewFoodItems() {
   const [items, setItems] = useState([]);
@@ -10,16 +10,14 @@ function UserViewFoodItems() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8001/restaurants/food-items")
+    api
+      .get("/restaurants/food-items")   // ✅ changed
       .then((res) => setItems(res.data))
       .catch((err) => console.log(err));
   }, []);
 
   const cartItems = Object.values(cart || {});
-
   const totalItems = cartItems.reduce((sum, i) => sum + (i.qty || 0), 0);
-
   const totalAmount = cartItems.reduce(
     (sum, i) => sum + (i.qty || 0) * (Number(i.price) || 0),
     0
@@ -36,8 +34,10 @@ function UserViewFoodItems() {
 
           return (
             <div className="card" key={id || item.name}>
+              
+              {/* ✅ Fixed image path */}
               <img
-                src={`http://localhost:8001/uploads/${item.imageName}`}
+                src={`https://food-delivery-app-z30l.onrender.com/uploads/${item.imageName}`}
                 alt={item.name}
               />
 

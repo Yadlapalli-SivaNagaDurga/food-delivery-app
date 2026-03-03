@@ -1,9 +1,6 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import "../css/RestaurantOrders.css";
-import api from "../utils/api";
-
-
+import api from "../utils/api";   // ✅ Use centralized API
 
 function RestaurantOrders() {
 
@@ -27,10 +24,9 @@ function RestaurantOrders() {
   const acceptOrder = (id) => {
 
     const time = prompt("Enter Delivery Time (minutes)");
-
     if (!time) return;
 
-    axios.put(`http://localhost:8001/orders/accept/${id}?time=${time}`)
+    api.put(`/orders/accept/${id}?time=${time}`)
       .then(() => {
         alert("Order Accepted ✅");
         loadOrders();
@@ -41,7 +37,7 @@ function RestaurantOrders() {
   // ✅ REJECT ORDER
   const rejectOrder = (id) => {
 
-    axios.put(`http://localhost:8001/orders/reject/${id}`)
+    api.put(`/orders/reject/${id}`)
       .then(() => {
         alert("Order Rejected ❌");
         loadOrders();

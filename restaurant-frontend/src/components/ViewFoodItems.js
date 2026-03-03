@@ -1,7 +1,7 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";   // ⭐ ADD THIS
+import { useNavigate } from "react-router-dom";
 import "../css/ViewFoodItem.css";
+import api from "../utils/api";   // ✅ IMPORTANT
 
 function ViewFoodItems() {
 
@@ -9,10 +9,10 @@ function ViewFoodItems() {
   const [editingId, setEditingId] = useState(null);
   const [editedItem, setEditedItem] = useState({});
 
-  const navigate = useNavigate();   // ⭐ ADD THIS
+  const navigate = useNavigate();
 
   const loadItems = () => {
-    axios.get("http://localhost:8001/restaurants/food-items")
+    api.get(`/restaurants/food-items`)
       .then(res => setItems(res.data))
       .catch(err => console.log(err));
   };
@@ -25,7 +25,7 @@ function ViewFoodItems() {
 
     if (!window.confirm("Delete this item?")) return;
 
-    axios.delete(`http://localhost:8001/restaurants/food-items/${id}`)
+    api.delete(`/restaurants/food-items/${id}`)
       .then(() => {
         alert("Item Deleted ✅");
         loadItems();
@@ -47,7 +47,7 @@ function ViewFoodItems() {
 
   const saveUpdate = (id) => {
 
-    axios.put(`http://localhost:8001/restaurants/food-items/${id}`, editedItem)
+    api.put(`/restaurants/food-items/${id}`, editedItem)
       .then(() => {
         alert("Item Updated ✅");
         setEditingId(null);
@@ -69,8 +69,9 @@ function ViewFoodItems() {
           return (
             <div className="card" key={item.id}>
 
+              {/* ✅ FIXED IMAGE PATH */}
               <img
-                src={`http://localhost:8001/uploads/${item.imageName}`}
+                src={`https://food-delivery-app-z30l.onrender.com/uploads/${item.imageName}`}
                 alt={item.name}
               />
 
@@ -133,7 +134,6 @@ function ViewFoodItems() {
         })}
       </div>
 
-      {/* ⭐ BACK BUTTON */}
       <div className="back-btn-container">
         <button
           className="ghost-btn"

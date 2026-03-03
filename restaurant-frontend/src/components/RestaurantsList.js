@@ -1,7 +1,7 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/RestaurantsList.css";
+import api from "../utils/api";   // ✅ Use centralized API
 
 function RestaurantsList() {
 
@@ -9,7 +9,7 @@ function RestaurantsList() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("http://localhost:8001/restaurants/all")
+    api.get("/restaurants/all")   // ✅ This calls Render backend
       .then(res => setRestaurants(res.data))
       .catch(err => console.log(err));
   }, []);
@@ -29,10 +29,6 @@ function RestaurantsList() {
             <p><strong>Location:</strong> {rest.location}</p>
             <p><strong>Phone:</strong> {rest.phone}</p>
             <p><strong>Description:</strong> {rest.description}</p>
-
-            {/* <button onClick={() => navigate("/view-food-items")}>
-              View Menu
-            </button> */}
 
           </div>
         ))}

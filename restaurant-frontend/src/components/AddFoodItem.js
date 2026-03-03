@@ -1,11 +1,11 @@
 import { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../css/AddFoodItem.css";
+import api from "../utils/api";   // ✅ use centralized api
 
 function AddFoodItem() {
 
-  const navigate = useNavigate();          // ✅ NEW
+  const navigate = useNavigate();
 
   const email = localStorage.getItem("restaurantEmail");
 
@@ -43,7 +43,7 @@ function AddFoodItem() {
     formData.append("description", item.description);
     formData.append("email", email);
 
-    axios.post("http://localhost:8001/restaurants/food-items/upload", formData)
+    api.post("/restaurants/food-items/upload", formData)   // ✅ changed
       .then(response => {
 
         console.log("UPLOAD RESPONSE:", response.data);
@@ -103,7 +103,6 @@ function AddFoodItem() {
           Upload Item
         </button>
 
-        {/* ✅ GO BACK BUTTON */}
         <button
           className="ghost-btn"
           onClick={() => navigate("/restaurant-home")}

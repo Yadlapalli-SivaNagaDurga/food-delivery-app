@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:8001",
+  baseURL: "https://food-delivery-app-z30l.onrender.com",
   headers: {
     "Cache-Control": "no-cache",
     Pragma: "no-cache",

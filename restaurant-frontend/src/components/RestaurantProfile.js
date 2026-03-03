@@ -1,15 +1,13 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import "../css/RestaurantProfile.css";
 import { useNavigate } from "react-router-dom";
+import api from "../utils/api";   // ✅ use centralized api
 
 function RestaurantProfile() {
 
   const navigate = useNavigate();
-
   const email = localStorage.getItem("restaurantEmail");
 
-  // ✅ Hooks ALWAYS at top level
   const [profile, setProfile] = useState({
     name: "",
     email: "",
@@ -26,7 +24,7 @@ function RestaurantProfile() {
       return;
     }
 
-    axios.get(`http://localhost:8080/restaurants/profile/${email}`)
+    api.get(`/restaurants/profile/${email}`)   // ✅ changed
       .then(response => {
 
         console.log("PROFILE RESPONSE:", response.data);
@@ -34,7 +32,7 @@ function RestaurantProfile() {
         if (response.data) {
           setProfile({
             ...response.data,
-            email: email   // ✅ Preserve identity
+            email: email
           });
         }
       })
@@ -42,7 +40,7 @@ function RestaurantProfile() {
         console.log("Fetch failed:", error);
       });
 
-  }, [email, navigate]);   // ✅ ESLint warning fixed
+  }, [email, navigate]);
 
   const handleChange = (e) => {
     setProfile({
@@ -53,7 +51,7 @@ function RestaurantProfile() {
 
   const handleUpdate = () => {
 
-    axios.put(`http://localhost:8001/restaurants/profile/${email}`, {
+    api.put(`/restaurants/profile/${email}`, {   // ✅ changed
       name: profile.name,
       location: profile.location,
       phone: profile.phone,

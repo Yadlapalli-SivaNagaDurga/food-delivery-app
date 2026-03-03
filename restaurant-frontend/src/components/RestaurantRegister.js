@@ -1,7 +1,7 @@
 import { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../css/Form.css";
+import api from "../utils/api";   // ✅ use centralized api
 
 function RestaurantRegister() {
 
@@ -27,8 +27,8 @@ function RestaurantRegister() {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
-        "http://localhost:8001/restaurants/register",
+      const response = await api.post(   // ✅ changed
+        "/restaurants/register",
         restaurant
       );
 
@@ -36,7 +36,6 @@ function RestaurantRegister() {
 
       console.log(response.data);
 
-      // ✅ CLEAR FORM AFTER SUCCESS
       setRestaurant({
         name: "",
         email: "",
